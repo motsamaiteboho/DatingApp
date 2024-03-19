@@ -35,8 +35,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootswatch/dist/united/bootstrap.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
