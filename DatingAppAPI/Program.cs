@@ -1,12 +1,14 @@
 
+using DatingAppAPI.Data;
 using DatingAppAPI.Extensions;
 using DatingAppAPI.Middleware;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatingAppAPI
 {
   public class Program
   {
-    public static void Main( string[] args )
+    public static async Task Main( string[] args )
     {
       var builder = WebApplication.CreateBuilder( args );
 
@@ -30,7 +32,22 @@ namespace DatingAppAPI
 
       app.MapControllers();
 
-      app.Run();
+      using var scope = app.Services.CreateScope();
+      var services = scope.ServiceProvider;
+      try
+      {
+        var context = services.GetRequiredService<DataContext>();
+        await context.Database.MigrateAsync();
+        await Seed.SeedUsers( context );
+      }
+      catch (Exception ex)
+      {
+        var logger = services.GetService<ILogger<Program>>();
+        logger.LogError( ex, "An error occurred during migration" );
+      }
+
+      await app.RunAsync(); // Use RunAsync instead of Run
     }
   }
+
 }
