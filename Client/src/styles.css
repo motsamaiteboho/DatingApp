@@ -3,7 +3,7 @@
 @import 'bootswatch/dist/united/bootstrap.css';
 @import 'ngx-toastr/toastr';
 @import 'font-awesome/css/font-awesome.min.css';
-
+@import 'ngx-spinner/animations/line-scale-party.css'
 /* You can add global styles to this file, and also import other style files */
 .tab-panel {
   border: 1px solid #ddd;

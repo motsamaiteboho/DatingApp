@@ -6,7 +6,7 @@
     {
       var today = DateOnly.FromDateTime( DateTime.UtcNow );
 
-      var  age =today.Year - today.Year;
+      var  age =today.Year - dob.Year;
 
       if(dob > today.AddYears(-age))
       {

@@ -29,6 +29,7 @@
     "jest-editor-support": "*",
     "ng-gallery": "^11.0.0",
     "ngx-bootstrap": "^12.0.0",
+    "ngx-spinner": "^16.0.2",
     "ngx-toastr": "^18.0.0",
     "run-script-os": "*",
     "rxjs": "~7.8.0",
