@@ -39,4 +39,7 @@ export class MembersService {
     );
   }
 
+  deletePhoto(photoId: number) {
+    return this.http.delete(this.baseurl + 'users/delete-photo/' + photoId);
+  }
 }
